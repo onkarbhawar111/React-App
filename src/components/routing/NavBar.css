@@ -1,0 +1,18 @@
+.red{
+    background-color: red;
+}
+
+
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    background-color: black
+    
+}
+
+ul li{
+    list-style-type: none;
+}
+
