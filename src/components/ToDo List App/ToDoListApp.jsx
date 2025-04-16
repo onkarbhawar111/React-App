@@ -9,15 +9,17 @@ const ToDoListApp = () => {
         setNewTask(e.target.value)
     }
     function handleAdd() {
-        if (newTask.trim() !== '') {
+        if (newTask.trim() !== '') 
+            {
             setTasks([...tasks, newTask])
             setNewTask('')
-        } else {
+        } 
+        else {
             alert('Task should not be empty')
         }
     }
     function handleDelete(index) {
-        const updatedTasks = tasks.filter((t, i) => i !== index)
+        const updatedTasks = tasks.filter((_, i) => i !== index)
         setTasks(updatedTasks)
     }
     function moveUp(index) {
@@ -60,3 +62,5 @@ const ToDoListApp = () => {
 }
 
 export default ToDoListApp
+
+

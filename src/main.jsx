@@ -8,9 +8,11 @@ import App3 from './components/App3.jsx'
 import { store } from './components/redux/store.jsx'
 import { Provider } from 'react-redux'
 import Appfinal from './Appfinal.jsx'
+import Pagination from './components/Pagination/Pagination.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
-        <Appfinal />
-    </Provider>,
+    // <Provider store={store}>
+    //     <Appfinal />
+    // </Provider>,
+    <Pagination />
 )
