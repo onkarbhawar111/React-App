@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import './Pagination.css'
 
 function Pagination(){
     const [apiData, setApiData] = useState([])
@@ -10,7 +11,7 @@ function Pagination(){
     const indexOfFirstItem = indexOfLastItem - rowsPerPage;
     const currentItems = apiData?.users?.slice(indexOfFirstItem, indexOfLastItem)
     const totalPages = Math.ceil(apiData.total/rowsPerPage);
-    console.log(totalPages)
+    // console.log(totalPages)
 
     function handlePrev(){
         setCurrentPage((prev) => prev - 1)
@@ -21,6 +22,9 @@ function Pagination(){
         setCurrentPage((next) => Math.min(next+1, totalPages))
 
     }
+    function handleClick(pageNumber){
+        setCurrentPage(pageNumber)
+    }
 
     useEffect(()=>{
         axios.get('https://dummyjson.com/users?limit=0')
@@ -30,12 +34,10 @@ function Pagination(){
         })
     }, [])
 
-
-
     return(
         <>
         <h2>Pagination</h2>
-        <table>
+        <table className='table'>
             <thead>
                 <tr>
                     <th>Id</th>
@@ -59,6 +61,16 @@ function Pagination(){
         </table>
         <div>
             <button onClick={handlePrev} disabled={currentPage === 1}>Prev</button>
+            {
+                Array.from({length: totalPages} , ( x , index) => {
+                    return <button 
+                    key={index} 
+                    onClick={() => handleClick(index+1)} 
+                    className={currentPage === (index+1) ? 'active' : '' }>
+                        {index+1}
+                        </button>
+                })
+            }
             <button onClick={handleNext} disabled={currentPage === totalPages}>Next</button>
         </div>
         </>

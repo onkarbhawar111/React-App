@@ -9,10 +9,17 @@ import { store } from './components/redux/store.jsx'
 import { Provider } from 'react-redux'
 import Appfinal from './Appfinal.jsx'
 import Pagination from './components/Pagination/Pagination.jsx'
+import TailWindCSS from './components/TailWindCSS.jsx'
+import NavBar from './components/NavBar.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TypesExample from './components/Button.jsx'
 
 createRoot(document.getElementById('root')).render(
     // <Provider store={store}>
     //     <Appfinal />
     // </Provider>,
-    <Pagination />
+    // <Pagination />
+    // <TailWindCSS />
+    // <NavBar />
+    <TypesExample />
 )
